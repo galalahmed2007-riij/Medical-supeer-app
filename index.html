@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنصة الطبية الشاملة - Medical Super App</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; padding: 20px; text-align: center; }
+        .phone-container { max-width: 420px; margin: 20px auto; background: #fff; border-radius: 28px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 2px solid #e0e0e0; }
+        .app-header { background: #00796b; color: white; padding: 15px; border-radius: 16px; margin-bottom: 20px; font-size: 20px; font-weight: bold; }
+        .voice-btn { background: #ff9800; color: white; padding: 14px; border-radius: 12px; margin-bottom: 15px; cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; border: none; width: 100%; font-size: 16px; }
+        .card { background: #ffffff; border-radius: 16px; padding: 16px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; text-align: right; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .card-icon { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: white; }
+        .card-info { flex: 1; margin-right: 15px; }
+        .card-title { font-weight: bold; font-size: 16px; margin-bottom: 4px; }
+        .card-sub { font-size: 12px; color: #666; }
+        .bg-teal { background: #00796b; }
+        .bg-red { background: #e53935; }
+        .bg-blue { background: #1e88e5; }
+        .bg-green { background: #43a047; }
+    </style>
+</head>
+<body>
+
+    <h2>📱 المعاينة المباشرة للتطبيق الطبي</h2>
+    <p style="color: #666; margin-top: 5px;">Medical Super App Web Demo</p>
+
+    <div class="phone-container">
+        <div class="app-header">المنصة الطبية الشاملة</div>
+
+        <button class="voice-btn" onclick="speak('مرحباً بك في المنصة الطبية الشاملة. اضغط على أي قسم لبدء الخدمة')">
+            🔊 استمع لإرشادات التطبيق
+        </button>
+
+        <div class="card" onclick="speak('تم اختيار قسم تمريض المنازل')">
+            <div class="card-icon bg-teal">🩺</div>
+            <div class="card-info">
+                <div class="card-title">تمريض منازل</div>
+                <div class="card-sub">طلب ممرض معتمد للبيت فوراً</div>
+            </div>
+            <span>❯</span>
+        </div>
+
+        <div class="card" onclick="speak('تم اختيار قسم طوارئ الطرق والإسعاف السريع')">
+            <div class="card-icon bg-red">🚨</div>
+            <div class="card-info">
+                <div class="card-title">طوارئ الطرق SOS</div>
+                <div class="card-sub">نداء استغاثة لأقرب مسعف</div>
+            </div>
+            <span>❯</span>
+        </div>
+
+        <div class="card" onclick="speak('تم اختيار قسم اسأل طبيباً')">
+            <div class="card-icon bg-blue">💬</div>
+            <div class="card-info">
+                <div class="card-title">اسأل طبيباً</div>
+                <div class="card-sub">محادثات ومكالمات مع الأطباء</div>
+            </div>
+            <span>❯</span>
+        </div>
+
+        <div class="card" onclick="speak('تم اختيار قسم الصيدليات والمستشفيات المجاورة')">
+            <div class="card-icon bg-green">🏥</div>
+            <div class="card-info">
+                <div class="card-title">الصيدليات والمستشفيات</div>
+                <div class="card-sub">تتبع الأدوية وأسرّة الرعاية</div>
+            </div>
+            <span>❯</span>
+        </div>
+    </div>
+
+    <script>
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                var msg = new SpeechSynthesisUtterance(text);
+                msg.lang = 'ar-EG';
+                window.speechSynthesis.speak(msg);
+            } else {
+                alert(text);
+            }
+        }
+    </script>
+</body>
+</html>
