@@ -1,0 +1,30 @@
+name: medical_super_app
+description: "التطبيق الطبي والتمريضي المتكامل"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  
+  # المكتبيات الطبية والأساسية
+  speech_to_text: ^6.6.0
+  flutter_tts: ^3.8.5
+  geolocator: ^10.1.0
+  cloud_firestore: ^4.15.5
+  firebase_core: ^2.27.0
+  firebase_auth: ^4.17.8
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
